@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	insertQuery   = "INSERT INTO %s (order_id, namespace, total, postal_code, iso_code) VALUES (?, ?, ?, ?, ?)"
+	insertQuery   = "INSERT INTO %s (order_id, namespace, total, postal_code, town) VALUES (?, ?, ?, ?, ?)"
 	getQuery      = "SELECT * FROM %s"
 	getNSQuery    = "SELECT * FROM %s WHERE namespace = ?"
 	deleteQuery   = "DELETE FROM %s"

@@ -87,10 +87,10 @@ components:
           example: 1234.56
         postalCode:
           type: string
-          example: 80636
+          example: BN44
         town:
           type: string
-          example: Munich
+          example: Brighton
       required:
         - orderId
         - total

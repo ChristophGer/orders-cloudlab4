@@ -14,7 +14,7 @@ import (
 var newOrder = Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "Munich"}
 
 const (
-	parsedInsert = "INSERT INTO tableName (order_id, namespace, total, postal_code, iso_code) VALUES (?, ?, ?, ?, ?)"
+	parsedInsert = "INSERT INTO tableName (order_id, namespace, total, postal_code, town) VALUES (?, ?, ?, ?, ?)"
 	parsedGet    = "SELECT * FROM tableName"
 	parsedDelete = "DELETE FROM tableName"
 )

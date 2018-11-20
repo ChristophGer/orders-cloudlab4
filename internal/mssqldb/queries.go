@@ -11,7 +11,7 @@ BEGIN
       namespace VARCHAR(64),
       total DECIMAL(8,2),
       postal_code VARCHAR(64),
-      iso_code VARCHAR(64),
+      town VARCHAR(64),
       PRIMARY KEY (order_id, namespace)
     )
 END`
