@@ -12,7 +12,7 @@ func TestMemoryCreateAndGet(t *testing.T) {
 	repo := NewOrderRepositoryMemory()
 
 	//when
-	newOrder := Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "DE"}
+	newOrder := Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "Munich"}
 
 	err := repo.InsertOrder(newOrder)
 
@@ -27,7 +27,7 @@ func TestMemoryCreateAndGet(t *testing.T) {
 	assert.Len(t, resultOrders, 1)
 	assert.Equal(t, resultOrders[0].OrderId, "orderId1")
 	assert.Equal(t, resultOrders[0].PostalCode, "80636")
-	assert.Equal(t, resultOrders[0].Town, "DE")
+	assert.Equal(t, resultOrders[0].Town, "Munich")
 	assert.Equal(t, resultOrders[0].Total, float64(10))
 }
 
@@ -35,7 +35,7 @@ func TestMemoryErrorOnCreateDuplicate(t *testing.T) {
 	Repo := NewOrderRepositoryMemory()
 
 	//when
-	newOrder := Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "DE"}
+	newOrder := Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "Munich"}
 
 	err := Repo.InsertOrder(newOrder)
 	err = Repo.InsertOrder(newOrder)
@@ -47,8 +47,8 @@ func TestMemoryGetByNamespaceSuccess(t *testing.T) {
 	repo := NewOrderRepositoryMemory()
 
 	//when
-	orderN7 := Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "DE"}
-	orderN8 := Order{OrderId: "orderId1", Namespace: "N8", Total: 10, PostalCode: "80636", Town: "DE"}
+	orderN7 := Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "Munich"}
+	orderN8 := Order{OrderId: "orderId1", Namespace: "N8", Total: 10, PostalCode: "80636", Town: "Munich"}
 
 	err := repo.InsertOrder(orderN7)
 	assert.NoError(t, err)
@@ -75,7 +75,7 @@ func TestMemoryDeleteSuccess(t *testing.T) {
 	repo := NewOrderRepositoryMemory()
 
 	// ensure there is an order to delete
-	err := repo.InsertOrder(Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "DE"})
+	err := repo.InsertOrder(Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "Munich"})
 	assert.NoError(t, err)
 
 	resultOrders, err := repo.GetOrders()
@@ -95,8 +95,8 @@ func TestMemoryDeleteByNamespaceSuccess(t *testing.T) {
 	repo := NewOrderRepositoryMemory()
 
 	//when
-	orderN7 := Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "DE"}
-	orderN8 := Order{OrderId: "orderId1", Namespace: "N8", Total: 10, PostalCode: "80636", Town: "DE"}
+	orderN7 := Order{OrderId: "orderId1", Namespace: "N7", Total: 10, PostalCode: "80636", Town: "Munich"}
+	orderN8 := Order{OrderId: "orderId1", Namespace: "N8", Total: 10, PostalCode: "80636", Town: "Munich"}
 
 	err := repo.InsertOrder(orderN7)
 	err = repo.InsertOrder(orderN8)

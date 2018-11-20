@@ -90,7 +90,7 @@ components:
           example: 80636
         town:
           type: string
-          example: DE
+          example: Munich
       required:
         - orderId
         - total
